@@ -15,7 +15,8 @@ int y = height / 2;
 int entireTail;
 
 extern int baitX = rand() % width;
-extern int baitY = rand() % height; 
+extern int baitY = rand() % height;
+extern sdir;
 
 
 int update();
