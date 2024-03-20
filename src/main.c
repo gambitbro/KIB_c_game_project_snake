@@ -58,6 +58,7 @@ int main(void)
 
 void reset()
 {
+    move_snake(STOP);
     point = 0;
     x = width / 2;
     y = height / 2;
