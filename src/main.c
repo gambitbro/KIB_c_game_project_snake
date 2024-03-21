@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <signal.h>
+#include <sys/time.h>
 
 #define GAME_START 0
 #define GAME_END 1
@@ -19,11 +20,21 @@ extern int baitY = rand() % height;
 extern sdir;
 
 
-int update();
+int update(int signum);
 int display_menu();
+void display_snake();
 
 int game_start()
 {
+    // signal 설정
+    static struct itimerval timer;
+    signal(SIGVTALRM, update);
+    timer.it_value.tv_sec = 0;
+    timer.it_value.tv_usec = 16667;
+    timer.it_interval.tv_sec = 0;
+    timer.it_interval.tv_usec = 16667;
+    setitimer(ITIMER_VIRTUAL, &timer, NULL);
+
     while (1){
         if (game == GAME_END){
             //save_result(point);
@@ -58,7 +69,7 @@ int main(void)
 
 void reset()
 {
-    move_snake(STOP);
+    //move_snake(STOP);
     point = 0;
     x = width / 2;
     y = height / 2;

@@ -69,7 +69,7 @@ void update_snaketail()
     }
 }
 
-int update()
+int update(int signum)
 {
     srand((unsigned)time(NULL));
 
