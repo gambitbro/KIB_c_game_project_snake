@@ -1,4 +1,8 @@
-
+/**
+ * @brief 스네이크 게임의 필드 구성을 정의했습니다. 필드의 총 길이와 높이를 지정하였고
+ * 메인함수에서 가져온 각종 필요한 변수들을 정의했습니다. 그리고 미끼를 먹었을때 늘어나는 꼬리의
+ * 최대개수를 배열로 정의했습니다.(메인함수에서 가져온 함수들은 메인함수에서 따로 설명할것임.) 
+ * */
 
 
 #define width 160
@@ -13,7 +17,10 @@ extern int point;
 
 int snakeTailX[100];
 int snakeTailY[100];
-
+/**
+* @brief display_snake(필드구성함수)를 정의했습니다
+게임을 시작했을때
+*/
 void display_snake()
 {
     system("clear");
