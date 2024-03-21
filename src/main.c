@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <sys/time.h>
+#include <time.h>
 
 #define GAME_START 0
 #define GAME_END 1
@@ -17,7 +18,7 @@ int entireTail;
 
 extern int baitX = rand() % width;
 extern int baitY = rand() % height;
-extern sdir;
+extern int sdir;
 
 
 int update(int signum);
