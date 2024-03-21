@@ -15,8 +15,8 @@ extern int baitX;
 extern int baitY;
 extern int entireTail;
 extern int point;
-extern int snakeX[];
-extern int snakeY[];
+extern int snakeX[100];
+extern int snakeY[100];
 
 //int snakeTailX[][];
 

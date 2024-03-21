@@ -18,8 +18,8 @@ extern entireTail;
 
 int baitX;
 int baitY;
-int snakeX[];
-int snakeY[];
+int snakeX[100];
+int snakeY[100];
 
 void space()
 {
@@ -133,14 +133,22 @@ int update(int signum)
     if (x == width-1) game = GAME_END;
     if (y == height-1) game = GAME_END;
 
-	snakeX[0] = x;
-	snakeY[0] = y;
-	for(int i = 0; i < entireTail ; ++i)
-	{
-		snakeX[i] = snakeX[i+1];
-		snakeY[i] = snakeY[i+1];
-	}
 
+    // snake tail logic
+    int tempX = snakeX[0];
+    int tempY = snakeY[0];
+    int tempX2, tempY2;
+    snakeX[0] = x;
+    snakeY[0] = y;
+    for (int i = 1; i < entireTail; i++) {
+        tempX2 = snakeX[i];
+        tempY2 = snakeY[i];
+        snakeX[i] = tempX;
+        snakeY[i] = tempY;
+        tempX = tempX2;
+        tempY = tempY2;
+    }
+    return 0;
 }
 
 

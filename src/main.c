@@ -20,8 +20,8 @@ extern int baitX();
 extern int baitY();
 extern sdir;
 extern void space();
-extern int snakeX[];
-extern int snakeY[];
+extern int snakeX[100];
+extern int snakeY[100];
 
 int update(int signum);
 int display_menu();
