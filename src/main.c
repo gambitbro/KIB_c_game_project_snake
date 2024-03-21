@@ -79,6 +79,7 @@ void reset()
     point = 0;
     x = width / 2;
     y = height / 2;
+    space();
     //    baitX = rand() % width;
     //    baitY = rand() % height;
 }

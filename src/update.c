@@ -17,6 +17,7 @@ extern int point;
 extern snakeTailX[100];
 extern snakeTailY[100];
 extern entireTail;
+extern int space();
 int baitX;
 int baitY;
 
@@ -55,6 +56,13 @@ int move_snake(int sdir)
     x = newx;
     y = newy;
     return 0;
+}
+
+// bait & snake
+void collison()
+{
+    if (x == baitX && y == baitY)
+    space();
 }
 
 // update snaketail
@@ -107,7 +115,7 @@ int update(int signum)
     ++ count;
     display_snake();
     update_snaketail();
-
+    collison();
     // gameover if snake touch it's own body
     for (int i = 0; i < entireTail; ++i)
     {
@@ -124,6 +132,14 @@ int update(int signum)
     if (y == height) game = GAME_END;
 
 
-
+int space()
+{
+    srand(time(NULL));
+    baitX = rand() % width-1;
+    baitY = rand() % height-1;
+    return baitX , baitY;
 }
+}
+
+
 
