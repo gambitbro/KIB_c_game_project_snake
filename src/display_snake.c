@@ -1,8 +1,5 @@
-
-
-
-#define width 160
-#define height 120
+#define width 40
+#define height 30
 
 extern int x;
 extern int y;
@@ -13,6 +10,7 @@ extern int point;
 
 int snakeTailX[100];
 int snakeTailY[100];
+
 
 void display_snake()
 {
@@ -57,3 +55,4 @@ void display_snake()
     printf("\n\n");
     printf("Your Point : %d\n", point);
 }
+//
