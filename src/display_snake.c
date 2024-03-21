@@ -1,4 +1,8 @@
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <sys/time.h>
+#include <time.h>
 
 
 #define width 40

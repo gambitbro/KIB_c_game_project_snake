@@ -76,7 +76,7 @@ void update_snaketail()
     }
 }
 
-void update(void)
+int update(int signum)
 {
     srand((unsigned)time(NULL));
 
@@ -103,6 +103,9 @@ void update(void)
     default:
         break;
     }
+    
+    display_snake();
+    update_snaketail();
 
     // random bait setup
     if (x == baitX && y == baitY)
