@@ -18,7 +18,7 @@ void display_snake()
 {
     system("clear");
 
-    //celing print
+    //ceiling print
     for (int i = 0; i < width + 2; ++i){
         printf("@");
     }
