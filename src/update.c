@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <sys/time.h>
 
 #define GAME_START 0
 #define GAME_END 1
 #define width 160
 #define height 120
+
 
 int baitX = rand() % width;
 int baitY = rand() % height;

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <sys/time.h>
+#include <time.h>
 
 #define GAME_START 0
 #define GAME_END 1
