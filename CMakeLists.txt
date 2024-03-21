@@ -4,7 +4,11 @@ project(snake_mbg)
 file(GLOB SRC_FILES "src/*.c")
 
 add_executable(snake_mbg ${SRC_FILES})
-target_include_directories(snake_mbg PUBLIC include)
+find_library(MYSQL libmysqlclient)
+target_link_libraries(snake_mbg ${MYSQL})
+
+target_include_directories(snake_mbg PUBLIC include PRIVATE "/usr/include/mysql")
+
 
 install(TARGETS snake_mbg DESTINATION /usr/local/bin)
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION /usr/local/include)

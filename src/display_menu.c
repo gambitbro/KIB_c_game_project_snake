@@ -7,6 +7,7 @@ int display_menu()
 
     system("clear");
 
+
     printf("--------------------\n");
     printf("Snake mbg\n");
     printf("-------------------\n");
