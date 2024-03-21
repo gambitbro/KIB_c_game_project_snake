@@ -8,9 +8,8 @@
 #define width 160
 #define height 120
 
-
-int baitX = rand() % width;
-int baitY = rand() % height;
+int baitX(void);
+int baitY(void);
 
 extern int x;
 extern int y;
@@ -20,11 +19,12 @@ extern snakeTailX[100];
 extern snakeTailY[100];
 extern entireTail;
 
-typedef enum{
-    STOP = 0, 
-    LEFT, 
-    RIGHT, 
-    UP, 
+typedef enum
+{
+    STOP = 0,
+    LEFT,
+    RIGHT,
+    UP,
     DOWN
 } sdir;
 
@@ -35,7 +35,8 @@ int move_snake(int sdir)
     newx = x;
     newy = y;
 
-    switch (sdir){
+    switch (sdir)
+    {
     case LEFT:
         --newx;
         break;
@@ -61,7 +62,8 @@ void update_snaketail()
     int oldX2, oldY2;
     snakeTailX[0] = x;
     snakeTailY[0] = y;
-    for (int i = 1; i < entireTail; ++i){
+    for (int i = 1; i < entireTail; ++i)
+    {
         oldX2 = snakeTailX[i];
         oldY2 = snakeTailY[i];
         snakeTailX[i] = oldX;
@@ -78,7 +80,8 @@ int update(int signum)
     int ch;
     ch = getch();
 
-    switch (ch){
+    switch (ch)
+    {
     case 'i':
         move_snake(UP);
         break;
@@ -99,28 +102,42 @@ int update(int signum)
     }
 
     // random bait setup
-    if (x == baitX && y == baitY){
+    if (x == baitX && y == baitY)
+    {
         point += 10;
-        baitX = rand() % width;
-        baitY = rand() % height;
+        baitY();
+        baitX();
         ++entireTail;
     }
 
-    //gameover if snake touch it's own body
-    for (int i = 0; i < entireTail; ++i){
-        if (snakeTailX[i] == x && snakeTailY[i] == y){
+    // gameover if snake touch it's own body
+    for (int i = 0; i < entireTail; ++i)
+    {
+        if (snakeTailX[i] == x && snakeTailY[i] == y)
+        {
             game = GAME_END;
         }
     }
 
-    //gameover if snake touch wall
-    if (x >= width || x < 0 || y >= height || y < 0){
+    // gameover if snake touch wall
+    if (x >= width || x < 0 || y >= height || y < 0)
+    {
         game = GAME_END;
     }
-
 
     return 0;
 }
 
+int baitY(void)
+{
+    int num;
+    num = rand() % width;
+    return baitY;
+}
 
-
+int baitX(void)
+{
+    int num;
+    num = rand() % height;
+    return baitX;
+}
