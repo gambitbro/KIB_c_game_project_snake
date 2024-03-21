@@ -17,10 +17,21 @@ extern int point;
 extern snakeTailX[100];
 extern snakeTailY[100];
 extern entireTail;
-extern int space();
 int baitX;
 int baitY;
-int space();
+
+void space()
+{
+    srand(time(NULL));
+    baitX = rand()%height-1;
+    baitY = rand()%width-1;
+    if (x == baitX && y == baitY)
+    {
+        baitX = rand()%height-1;
+        baitY = rand()%width-1;
+    }
+    
+}
 
 typedef enum
 {
@@ -51,8 +62,7 @@ int move_snake(int sdir)
         case UP:
             newx--;
             break;
-        default:
-            break;
+        
     }
     x = newx;
     y = newy;
@@ -63,7 +73,8 @@ int move_snake(int sdir)
 void collison()
 {
     if (x == baitX && y == baitY)
-    space();
+    {++point;
+    space();}
 }
 
 // update snaketail
@@ -109,8 +120,7 @@ int update(int signum)
     case 's':
         game = GAME_END;
         break;
-    default:
-        break;
+    
     }
 
     ++ count;
@@ -132,14 +142,6 @@ int update(int signum)
     if (x == width) game = GAME_END;
     if (y == height) game = GAME_END;
 
-
-int space()
-{
-    srand(time(NULL));
-    baitX = rand() % width-1;
-    baitY = rand() % height-1;
-    return baitX , baitY;
-}
 }
 
 

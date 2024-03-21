@@ -19,7 +19,7 @@ int entireTail;
 extern int baitX();
 extern int baitY();
 extern sdir;
-extern int space();
+extern void space();
 
 int update(int signum);
 int display_menu();
