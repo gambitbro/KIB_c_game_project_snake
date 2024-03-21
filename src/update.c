@@ -109,6 +109,9 @@ int update(int signum)
     update_snaketail();
 
     
+    
+
+
 
     // gameover if snake touch it's own body
     for (int i = 0; i < entireTail; ++i)
@@ -120,11 +123,13 @@ int update(int signum)
     }
 
     // gameover if snake touch wall
-    if (x >= width || x < 0 || y >= height || y < 0)
+    if (x == width || x < 0 || y == height || y < )
     {
         game = GAME_END;
     }
 
-    
+    if ()
+
+
 }
 
