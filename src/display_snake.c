@@ -66,7 +66,8 @@ void display_snake()
 
 int space()
 {
-    baitX = srand(time(NULL));%width;
-    baitY = srand(time(NULL));%height;
+    srand(time(NULL));
+    baitX = rand() % width;
+    baitY = rand() % height;
     return baitX , baitY;
 }
