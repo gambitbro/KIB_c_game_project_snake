@@ -25,12 +25,12 @@ void display_snake()
     space();
 
     //ceiling print
-    for (int i = 0; i < width; ++i){
-        for (int j = 0; j < height; ++j){
-            if (i == 0 || i ==width-1)
+    for (int i = 0; i < height; ++i){
+        for (int j = 0; j < width; ++j){
+            if (i == 0 || i ==height-1)
             {
                 printf("@");
-            }else if (j == 0 || j == height -1)
+            }else if (j == 0 || j == width -1)
             {
                 printf("@");
             }

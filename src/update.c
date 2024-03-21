@@ -6,8 +6,8 @@
 
 #define GAME_START 0
 #define GAME_END 1
-#define width 160
-#define height 120
+#define width 40
+#define height 30
 
 int count;
 extern int x;
@@ -108,11 +108,6 @@ int update(int signum)
     display_snake();
     update_snaketail();
 
-    
-    
-
-
-
     // gameover if snake touch it's own body
     for (int i = 0; i < entireTail; ++i)
     {
@@ -127,6 +122,7 @@ int update(int signum)
     if (y == 0) game = GAME_END;
     if (x == width) game = GAME_END;
     if (y == height) game = GAME_END;
+
 
 
 }
