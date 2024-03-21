@@ -49,6 +49,8 @@ int move_snake(int sdir)
         --newy;
         break;
     }
+    x = newx;
+    y = newy;
 
     return 0;
 }
