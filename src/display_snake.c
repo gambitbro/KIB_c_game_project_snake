@@ -25,7 +25,7 @@ void display_snake()
     //ceiling print
     for (int i = 0; i < height; ++i){
         for (int j = 0; j < width; ++j){
-            if (i == 0 || i ==height-1)
+            if (i == 0 || i == height-1)
             {
                 printf("@");
             }else if (j == 0 || j == width -1)

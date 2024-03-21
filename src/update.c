@@ -50,20 +50,22 @@ int move_snake(int sdir)
     newy = y;
 
     switch (sdir){
-        case LEFT:
-            newy--;
-            break;
-        case RIGHT:
-            newy++;
-            break;
-        case DOWN:
-            newx++;
-            break;
-        case UP:
-            newx--;
-            break;
-        
-    }
+    case LEFT:
+        newy--;
+        break;
+    case RIGHT:
+        newy++;
+        break;
+    case DOWN:
+        newx++;
+        break;
+    case UP:
+        newx--;
+        break;   
+    }    
+    
+    
+    
     x = newx;
     y = newy;
     return 0;
