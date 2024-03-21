@@ -36,11 +36,7 @@ int game_start()
     setitimer(ITIMER_VIRTUAL, &timer, NULL);
 
     display_snake();
-    while (1)
-    {
-        if (game == GAME_END)
-        {
-            // save_result(point);
+
     while (1){
         if (game == GAME_END){
             //save_result(point);
