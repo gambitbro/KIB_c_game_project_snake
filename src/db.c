@@ -1,3 +1,3 @@
-#include <mysql.h>
+//#include <mysql.h>
 
-static MYSQL *conn;
+//static MYSQL *conn;
