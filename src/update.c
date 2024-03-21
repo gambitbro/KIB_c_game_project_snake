@@ -7,8 +7,9 @@
 #define width 160
 #define height 120
 
-int baitX = rand() % width;
-int baitY = rand() % height;
+
+int baitX (void);
+int baitY (void);
 
 extern int x;
 extern int y;
@@ -99,8 +100,8 @@ int update(int signum)
     // random bait setup
     if (x == baitX && y == baitY){
         point += 10;
-        baitX = rand() % width;
-        baitY = rand() % height;
+        baitY();
+        baitX();
         ++entireTail;
     }
 
@@ -120,5 +121,16 @@ int update(int signum)
     return 0;
 }
 
+int baitY (void)
+{
+    int num;
+    num = rand() % width;
+    return baitY;
+}
 
-
+int baitX (void)
+{
+    int num;
+    num = rand() % height;
+    return baitX;
+}
