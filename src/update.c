@@ -12,6 +12,7 @@
 int baitX(void);
 int baitY(void);
 
+int count;
 extern int x;
 extern int y;
 extern int game;
@@ -103,7 +104,7 @@ int update(int signum)
     default:
         break;
     }
-    
+    ++ count;
     display_snake();
     update_snaketail();
 

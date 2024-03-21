@@ -8,6 +8,7 @@
 #define width 40
 #define height 30
 
+extern int count;
 extern int x;
 extern int y;
 extern int baitX;
@@ -55,4 +56,6 @@ void display_snake()
     }
     printf("\n\n");
     printf("Your Point : %d\n", point);
+    printf("\n\n");
+    printf("Timer : %d\n",++count);
 }
