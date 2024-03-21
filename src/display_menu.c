@@ -1,5 +1,5 @@
 /**
- * printf, scanf함수를 사용하게 위해 불러온 헤더파일의 목록입니다.
+ * printf, scanf, system함수를 사용하게 위해 불러온 헤더파일의 목록입니다.
 */
 #include <stdio.h>
 #include <stdlib.h>
