@@ -7,7 +7,7 @@
 #define GAME_START 0
 #define GAME_END 1
 #define width 40
-#define height 30
+#define height 40
 #define snake_init_length 3
 
 int game;
@@ -20,6 +20,8 @@ extern int baitX();
 extern int baitY();
 extern sdir;
 extern void space();
+extern int snakeX[];
+extern int snakeY[];
 
 int update(int signum);
 int display_menu();
@@ -80,6 +82,8 @@ void reset()
     point = 0;
     x = width / 2;
     y = height / 2;
+    snakeX[0] = x;
+    snakeY[0] = y;
     space();
     //    baitX = rand() % width;
     //    baitY = rand() % height;

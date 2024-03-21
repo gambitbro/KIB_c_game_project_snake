@@ -6,7 +6,7 @@
 
 
 #define width 40
-#define height 30
+#define height 40
 
 extern int count;
 extern int x;
@@ -15,9 +15,10 @@ extern int baitX;
 extern int baitY;
 extern int entireTail;
 extern int point;
+extern int snakeX[];
+extern int snakeY[];
 
-int snakeTailX[100];
-int snakeTailY[100];
+//int snakeTailX[][];
 
 void display_snake()
 {
@@ -25,32 +26,22 @@ void display_snake()
     //ceiling print
     for (int i = 0; i < height; ++i){
         for (int j = 0; j < width; ++j){
-            if (i == 0 || i == height-1)
-            {
-                printf("@");
-            }else if (j == 0 || j == width -1)
-            {
-                printf("@");
+            for(int k = 0 ; k < entireTail; ++k){
+                if (i == snakeX[k] && j == snakeY[k])
+                    printf("p");
             }
-            else
-             {printf(" ");}
-
-            if (i == x && j == y){
+            if (i == 0 || i == height-1){
+                printf("@");
+            }else if (j == 0 || j == width -1){ 
+                printf("@");
+            }else if (i == x && j == y){
                 printf("O");
             } else if (i == baitX && j == baitY){
                 printf("P");
-            } else{
-                int snakeTail = 0;
-                for (int k = 0; k < entireTail; ++k){
-                    if (snakeTailX[k] == i && snakeTailY[k] == j){
-                        printf("o");
-                        snakeTail = 1;
-                    }
-                }
-                if (snakeTail == 0){
-                    printf(" ");
-                }
-            }
+            } 
+            else printf(" ");
+            
+            
         }
         printf("\n");
     }
@@ -58,5 +49,6 @@ void display_snake()
     printf("Your Point : %d\n", point);
     printf("\n\n");
     printf("Timer : %d\n",++count);
+    printf("\n\n");
+    printf("tail : %d\n",entireTail);
 }
-
