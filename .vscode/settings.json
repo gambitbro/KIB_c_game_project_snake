@@ -81,7 +81,8 @@
         "update.h": "c",
         "time.h": "c",
         "curses.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "signal.h": "c"
     },
     //cmake source folder
     "cmake.sourceDirectory": "${workspaceFolder}",

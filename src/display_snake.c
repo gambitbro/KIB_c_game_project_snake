@@ -22,6 +22,7 @@ int snakeTailY[100];
 void display_snake()
 {
     system("clear");
+    space();
 
     //ceiling print
     for (int i = 0; i < width; ++i){
@@ -33,7 +34,10 @@ void display_snake()
             {
                 printf("@");
             }
-            else printf(" ");
+            else
+             {printf(" ");}
+
+
         
             if (i == x && j == y){
                 printf("O");
@@ -58,4 +62,11 @@ void display_snake()
     printf("Your Point : %d\n", point);
     printf("\n\n");
     printf("Timer : %d\n",++count);
+}
+
+int space()
+{
+    baitX = srand(time(NULL));%width;
+    baitY = srand(time(NULL));%height;
+    return baitX , baitY;
 }

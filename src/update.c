@@ -9,9 +9,6 @@
 #define width 160
 #define height 120
 
-int baitX(void);
-int baitY(void);
-
 int count;
 extern int x;
 extern int y;
@@ -20,6 +17,8 @@ extern int point;
 extern snakeTailX[100];
 extern snakeTailY[100];
 extern entireTail;
+int baitX;
+int baitY;
 
 typedef enum
 {
@@ -109,14 +108,7 @@ int update(int signum)
     display_snake();
     update_snaketail();
 
-    // random bait setup
-    if (x == baitX && y == baitY)
-    {
-        point += 10;
-        baitY();
-        baitX();
-        ++entireTail;
-    }
+    
 
     // gameover if snake touch it's own body
     for (int i = 0; i < entireTail; ++i)
@@ -136,16 +128,3 @@ int update(int signum)
     
 }
 
-int baitY(void)
-{
-    int num;
-    num = rand() % width;
-    return baitY;
-}
-
-int baitX(void)
-{
-    int num;
-    num = rand() % height;
-    return baitX;
-}
