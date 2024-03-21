@@ -123,10 +123,11 @@ int update(int signum)
     }
 
     // gameover if snake touch wall
-    if (x == width || x < 0 || y == height || y < )
-    {
-        game = GAME_END;
-    }
+    if (x == 0) game = GAME_END;
+    if (y == 0) game = GAME_END;
+    if (x == width) game = GAME_END;
+    if (y == height) game = GAME_END;
+
 
 }
 
