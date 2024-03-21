@@ -35,7 +35,6 @@ int game_start()
     timer.it_interval.tv_usec = 16667;
     setitimer(ITIMER_VIRTUAL, &timer, NULL);
 
-    display_snake();
     while (1){
         if (game == GAME_END){
             //save_result(point);
@@ -54,6 +53,7 @@ int main(void)
     switch(menu){
     case 1:
         game = GAME_START;
+        display_snake();
         reset();
         menu = game_start();
         break;

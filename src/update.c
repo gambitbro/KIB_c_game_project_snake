@@ -35,17 +35,18 @@ int move_snake(int sdir)
     newy = y;
 
     switch (sdir){
+    case 74:
     case LEFT:
-        --newx;
+        newx--;
         break;
     case RIGHT:
-        ++newx;
+        newx++;
         break;
     case DOWN:
-        ++newy;
+        newy++;
         break;
     case UP:
-        --newy;
+        newy--;
         break;
     }
 
@@ -70,7 +71,7 @@ void update_snaketail()
     }
 }
 
-int update(int signum)
+void update(void)
 {
     srand((unsigned)time(NULL));
 
@@ -118,7 +119,7 @@ int update(int signum)
     }
 
 
-    return 0;
+    
 }
 
 int baitY (void)
