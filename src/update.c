@@ -38,16 +38,16 @@ int move_snake(int sdir)
 
     switch (sdir){
         case LEFT:
-            newx--;
+            newy--;
             break;
         case RIGHT:
-            newx++;
-            break;
-        case DOWN:
             newy++;
             break;
+        case DOWN:
+            newx++;
+            break;
         case UP:
-            newy--;
+            newx--;
             break;
         default:
             break;
@@ -103,7 +103,7 @@ int update(int signum)
     default:
         break;
     }
-    
+
     display_snake();
     update_snaketail();
 
