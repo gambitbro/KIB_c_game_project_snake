@@ -20,6 +20,7 @@ extern entireTail;
 extern int space();
 int baitX;
 int baitY;
+int space();
 
 typedef enum
 {
