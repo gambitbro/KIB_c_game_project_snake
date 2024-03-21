@@ -128,8 +128,5 @@ int update(int signum)
         game = GAME_END;
     }
 
-    if ()
-
-
 }
 
