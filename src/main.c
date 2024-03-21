@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <sys/time.h>
+#include <time.h>
 
 #define GAME_START 0
 #define GAME_END 1
@@ -15,10 +16,9 @@ int x = width / 2;
 int y = height / 2;
 int entireTail;
 
-extern int baitX() ;
-extern int baitY() ;
+extern int baitX();
+extern int baitY();
 extern sdir;
-
 
 int update(int signum);
 int display_menu();
@@ -35,6 +35,12 @@ int game_start()
     timer.it_interval.tv_usec = 16667;
     setitimer(ITIMER_VIRTUAL, &timer, NULL);
 
+    display_snake();
+    while (1)
+    {
+        if (game == GAME_END)
+        {
+            // save_result(point);
     while (1){
         if (game == GAME_END){
             //save_result(point);
@@ -50,7 +56,8 @@ int main(void)
     int menu = 1;
     menu = display_menu();
 
-    switch(menu){
+    switch (menu)
+    {
     case 1:
         game = GAME_START;
         display_snake();
@@ -59,7 +66,7 @@ int main(void)
         break;
     case 2:
         printf("Record\n");
-        //print_result();
+        // print_result();
         break;
     case 3:
         printf("Quit\n");
@@ -70,10 +77,10 @@ int main(void)
 
 void reset()
 {
-    //move_snake(STOP);
+    // move_snake(STOP);
     point = 0;
     x = width / 2;
     y = height / 2;
-//    baitX = rand() % width;
-//    baitY = rand() % height; 
+    //    baitX = rand() % width;
+    //    baitY = rand() % height;
 }
