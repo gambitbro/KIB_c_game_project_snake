@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <sys/time.h>
+#include <signal.h>
 
 #define GAME_START 0
 #define GAME_END 1
@@ -35,22 +36,24 @@ int move_snake(int sdir)
     newx = x;
     newy = y;
 
-    switch (sdir)
-    {
-    case LEFT:
-        newx--;
-        break;
-    case RIGHT:
-        newx++;
-        break;
-    case DOWN:
-        newy++;
-        break;
-    case UP:
-        newy--;
-        break;
+    switch (sdir){
+        case LEFT:
+            newx--;
+            break;
+        case RIGHT:
+            newx++;
+            break;
+        case DOWN:
+            newy++;
+            break;
+        case UP:
+            newy--;
+            break;
+        default:
+            break;
     }
-
+    x = newx;
+    y = newy;
     return 0;
 }
 
