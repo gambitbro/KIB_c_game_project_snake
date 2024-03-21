@@ -17,7 +17,7 @@ int entireTail;
 
 extern int baitX = rand() % width;
 extern int baitY = rand() % height;
-extern sdir;
+extern int sdir;
 
 
 int update(int signum);
