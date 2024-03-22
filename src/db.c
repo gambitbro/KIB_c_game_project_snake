@@ -12,7 +12,7 @@ int main(){
     char *db = "snakerecord";
     char query[255];
     int port = 3306;
-    strcpy(query, "insert into record values(1, 집가고, 700, 10)");
+    
     strcpy(query, "select * from record");
 
     conn = mysql_init(NULL);
