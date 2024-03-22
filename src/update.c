@@ -112,7 +112,6 @@ int update(int signum)
             break;
         case 's':
             game = GAME_END;
-            record();
             break;
         
         }
@@ -131,10 +130,22 @@ int update(int signum)
     
 
     // gameover if snake touch wall
-    if (x == 0) game = GAME_END;
-    if (y == 0) game = GAME_END;
-    if (x == width-1) game = GAME_END;
-    if (y == height-1) game = GAME_END;
+    if (x == 0){
+        game = GAME_END;
+        writedb();
+    }
+    if (y == 0){
+        game = GAME_END;
+        writedb();
+    }
+    if (x == width-1){
+        game = GAME_END;
+        writedb();
+    }
+    if (y == height-1){
+        game = GAME_END;
+        writedb();
+    }
 
 
     // snake tail logic
