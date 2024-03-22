@@ -87,7 +87,7 @@ int main(void)
         menu = game_start();
         break;
     case 2:
-        menu = readdb();
+        menu = read_db();
         break;
     case 3:
         printf("Quit\n");

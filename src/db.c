@@ -2,6 +2,7 @@
 #include "db.h"
 #include <string.h>
 
+
 extern int point;
 
 static MYSQL *conn = NULL;
@@ -19,7 +20,7 @@ int print_result(MYSQL *conn) {
   res = mysql_store_result(conn);
   if (!res) {
     fprintf(stderr, "%s\n", mysql_error(conn));
-    return ERR;
+    return 1;
   }
   while ((row = mysql_fetch_row(res)) != NULL) {
     printf("%s\n", row[0]);
@@ -39,7 +40,6 @@ void init_db() {
     exit(1);
   }
 
-  // test_db(conn);
   create_table(conn);
 }
 

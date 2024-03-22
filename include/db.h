@@ -1,6 +1,8 @@
 #ifndef DB_H
 #define DB_H
-#include <mysql.h>
+#include <mysql/mysql.h>
+#include <time.h>
+#include <sys/time.h>
 
 typedef struct {
   int userid;  
