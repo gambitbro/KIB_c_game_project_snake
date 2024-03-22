@@ -132,19 +132,19 @@ int update(int signum)
     // gameover if snake touch wall
     if (x == 0){
         game = GAME_END;
-        break;
+    
     }
     if (y == 0){
         game = GAME_END;
-        break;
+    
     }
     if (x == width-1){
         game = GAME_END;
-        break;
+    
     }
     if (y == height-1){
         game = GAME_END;
-        break;
+
     }
 
 
