@@ -18,7 +18,6 @@ extern int point;
 extern int snakeX[100];
 extern int snakeY[100];
 
-//int snakeTailX[][];
 
 void display_snake()
 {
