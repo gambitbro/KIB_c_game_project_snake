@@ -6,20 +6,40 @@
 
 #define GAME_START 0
 #define GAME_END 1
-#define width 160
-#define height 120
-
-int baitX(void);
-int baitY(void);
+#define width 40
+#define height 40
 
 int count;
 extern int x;
 extern int y;
 extern int game;
 extern int point;
-extern snakeTailX[100];
-extern snakeTailY[100];
 extern entireTail;
+
+int baitX;
+int baitY;
+int snakeX[100];
+int snakeY[100];
+
+void space()
+{
+    srand(time(NULL));
+
+    baitX = rand()%height-1;
+    baitY = rand()%width-1;
+
+    if(baitX == 0 || baitX == height)
+    {baitX = rand()%height-1;}
+    else if(baitY == 0 || baitY == width)
+    {baitY = rand()%width-1;}
+    
+    if (x == baitX && y == baitY)
+    {
+        baitX = rand()%height-1;
+        baitY = rand()%width-1;
+    }
+    
+}
 
 typedef enum
 {
@@ -49,103 +69,87 @@ int move_snake(int sdir)
             break;
         case UP:
             newx--;
-            break;
-        default:
-            break;
-    }
+            break;   
+    }   
+
     x = newx;
     y = newy;
+
     return 0;
 }
 
-// update snaketail
-void update_snaketail()
+// bait & snake
+void collison()
 {
-    int oldX = snakeTailX[0];
-    int oldY = snakeTailY[0];
-    int oldX2, oldY2;
-    snakeTailX[0] = x;
-    snakeTailY[0] = y;
-    for (int i = 1; i < entireTail; ++i)
-    {
-        oldX2 = snakeTailX[i];
-        oldY2 = snakeTailY[i];
-        snakeTailX[i] = oldX;
-        snakeTailY[i] = oldY;
-        oldX = oldX2;
-        oldY = oldY2;
-    }
+    if (x == baitX && y == baitY)
+    {++point;
+    ++entireTail;
+    space();
+    void update_snaketail();}
 }
 
 int update(int signum)
 {
-    srand((unsigned)time(NULL));
-
     int ch;
     ch = getch();
 
-    switch (ch)
-    {
-    case 'i':
-        move_snake(UP);
-        break;
-    case 'j':
-        move_snake(LEFT);
-        break;
-    case 'k':
-        move_snake(DOWN);
-        break;
-    case 'l':
-        move_snake(RIGHT);
-        break;
-    case 's':
-        game = GAME_END;
-        break;
-    default:
-        break;
-    }
-
+    
+        switch (ch)
+        {
+        case 'i':
+            move_snake(UP);
+            break;
+        case 'j':
+            move_snake(LEFT);
+            break;
+        case 'k':
+            move_snake(DOWN);
+            break;
+        case 'l':
+            move_snake(RIGHT);
+            break;
+        case 's':
+            game = GAME_END;
+            break;
+        
+        }
+    
+    
+    
     ++ count;
     display_snake();
-    update_snaketail();
-
-    // random bait setup
-    if (x == baitX && y == baitY)
-    {
-        point += 10;
-        baitY();
-        baitX();
-        ++entireTail;
-    }
-
+    collison();
     // gameover if snake touch it's own body
-    for (int i = 0; i < entireTail; ++i)
-    {
-        if (snakeTailX[i] == x && snakeTailY[i] == y)
-        {
-            game = GAME_END;
-        }
-    }
+    //for (int i = 1; i < entireTail; ++i)
+   // {
+        //if(snakeX[0]==snakeX[i] && snakeY[0]==snakeY[i])
+        // game = GAME_END;
+   // }
+    
 
     // gameover if snake touch wall
-    if (x >= width || x < 0 || y >= height || y < 0)
-    {
-        game = GAME_END;
+    if (x == 0) game = GAME_END;
+    if (y == 0) game = GAME_END;
+    if (x == width-1) game = GAME_END;
+    if (y == height-1) game = GAME_END;
+
+
+    // snake tail logic
+    int tempX = snakeX[0];
+    int tempY = snakeY[0];
+    int tempX2, tempY2;
+    snakeX[0] = x;
+    snakeY[0] = y;
+    for (int i = 1; i < entireTail; i++) {
+        tempX2 = snakeX[i];
+        tempY2 = snakeY[i];
+        snakeX[i] = tempX;
+        snakeY[i] = tempY;
+        tempX = tempX2;
+        tempY = tempY2;
     }
-
-    
+    return 0;
 }
 
-int baitY(void)
-{
-    int num;
-    num = rand() % width;
-    return baitY;
-}
 
-int baitX(void)
-{
-    int num;
-    num = rand() % height;
-    return baitX;
-}
+
