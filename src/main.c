@@ -5,7 +5,7 @@
  * 게임 시작과 끝을 정의하고 미끼의 위치,snakedirection(sdir), update변수,
  * disdplay_menu변수, display_snake변수를 가져와서 사욯했습니다. 
 */
-
+#include "db.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
@@ -70,9 +70,8 @@ int game_start()
     }
     game = GAME_END;
 }
-/**
- * 
-*/
+
+
 int main(void)
 {
     int menu = 1;
@@ -87,14 +86,15 @@ int main(void)
         menu = game_start();
         break;
     case 2:
-        menu = read_db();
+        printf("Record\n");
         break;
     case 3:
         printf("Quit\n");
         break;
-    }
     return 0;
+    }
 }
+
 
 void reset()
 {
