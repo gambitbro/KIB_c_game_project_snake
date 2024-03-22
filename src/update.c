@@ -21,6 +21,8 @@ int baitY;
 int snakeX[100];
 int snakeY[100];
 
+int record();
+
 void space()
 {
     srand(time(NULL));
@@ -110,6 +112,7 @@ int update(int signum)
             break;
         case 's':
             game = GAME_END;
+            record();
             break;
         
         }
