@@ -33,6 +33,7 @@ extern int snakeY[100];
 
 int update(int signum);
 int display_menu();
+int display_record();
 void display_snake();
 /**
  * @brief game_start 변수를 정의하였습니다. itimerval 구조체는 
