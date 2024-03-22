@@ -6,7 +6,6 @@
  * 게임 시작과 끝을 정의하고 미끼의 위치,snakedirection(sdir), update변수,
  * disdplay_menu변수, display_snake변수를 가져와서 사용했습니다. 
 */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
@@ -25,8 +24,6 @@ int x = width / 2;
 int y = height / 2;
 int entireTail;
 
-extern int baitX();
-extern int baitY();
 extern sdir;
 extern void space();
 extern int snakeX[100];
@@ -93,13 +90,12 @@ int main(void)
         break;
     case 2:
         printf("Record\n");
-        // print_result();
         break;
     case 3:
         printf("Quit\n");
         break;
-    }
     return 0;
+    }
 }
 /**
  * reset함수를 정의하여 플레이어가 조종할수 있는 뱀의 시작위치를 표시하였습니다.

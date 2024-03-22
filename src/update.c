@@ -29,6 +29,8 @@ int baitY;
 int snakeX[100];
 int snakeY[100];
 
+int record();
+
 void space()
 {
     srand(time(NULL));
@@ -156,10 +158,22 @@ int update(int signum)
     */
 
     // gameover if snake touch wall
-    if (x == 0) game = GAME_END;
-    if (y == 0) game = GAME_END;
-    if (x == width-1) game = GAME_END;
-    if (y == height-1) game = GAME_END;
+    if (x == 0){
+        game = GAME_END;
+    
+    }
+    if (y == 0){
+        game = GAME_END;
+    
+    }
+    if (x == width-1){
+        game = GAME_END;
+    
+    }
+    if (y == height-1){
+        game = GAME_END;
+
+    }
 
     /**
      * @brief 뱀이 먹이를 섭취하였을경우에 생기는 꼬리의 변화를 임의의 변수
