@@ -1,5 +1,6 @@
+/*
+
 #include <stdio.h>
-#include <mysql.h>
 #include <string.h>
 
 int main(){
@@ -36,3 +37,5 @@ int main(){
     mysql_close(conn);
     return 0;
 }
+
+*/
