@@ -28,16 +28,16 @@ void display_snake()
         for (int j = 0; j < width; ++j){
             for(int k = 0 ; k < entireTail; ++k){
                 if (i == snakeX[k] && j == snakeY[k])
-                    printf("o");
+                    printf("🐍");
             }
-            if (i == 0 || i == height-1){
+            if (i == 0 || i == height -1){
                 printf("@");
             }else if (j == 0 || j == width -1){ 
                 printf("@");
             }else if (i == x && j == y){
-                printf("O");
+                printf("🐍");
             } else if (i == baitX && j == baitY){
-                printf("●");
+                printf("🍎");
             } 
             else printf(" ");
             

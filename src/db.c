@@ -1,3 +1,5 @@
+/*
+
 #include <stdio.h>
 #include "db.h"
 #include <string.h>
@@ -46,62 +48,5 @@ void init_db() {
 void close_db() {
   if (conn != NULL) {
     mysql_close(conn);
-  }
-}
-
-
-void read_db() {
-  char query[256];
-  printf("이름을 입력하세요: ");
-  scanf("%s", tmp.name);
-  snprintf(query, sizeof(query), "SELECT * FROM record WHERE name = '%s'", tmp.name);
-  if (mysql_query(conn, query)) {
-    printf("SELECT Query failed\n");
-  }
-
-  RESULT *res = get_one_row(conn);
-  if (res == NULL) {
-    system("clear");
-    printf("********************************\n");
-    printf("No History");
-    printf("********************************\n");
-  } else {
-      system("clear");
-      printf("********************************\n");
-      printf("%s\n", res->name);
-      printf("%d\n", res->point);
-      printf("time: %d-%d-%d %d:%d\n", res->year, res->month, res->day, res->hour, res->min);
-      printf("********************************\n");
-  }
-}
-
-void write_db(int userid, int point) {
-  printf("이름을 입력하세요: ");
-  scanf("%s", tmp.name);
-
-  tmp.point = point;
-
-  time_t now_sec = time(NULL);
-  struct tm *now = localtime(&now_sec);
-
-  tmp.year = now->tm_year + 1900;
-  tmp.month = now->tm_mon + 1;
-  tmp.day = now->tm_mday;
-  tmp.hour = now->tm_hour;
-  tmp.min = now->tm_min;
-
-  if (conn == NULL) {
-    init_db();
-  }
-
-  char query[512];
-  // safe version of printf
-  // store query
-  snprintf(query, sizeof(query),
-           "INSERT INTO record (name, point, year, month, day, hour, min) VALUES "
-           "('%s', %d, %d, %d, %d, %d, %d)",
-           tmp.name, tmp.point, tmp.year, tmp.month, tmp.day, tmp.hour, tmp.min);
-  if (mysql_query(conn, query)) {
-    printf("INSERT Query failed: %s\n", mysql_error(conn));
-  }
+    return 0;
 }
