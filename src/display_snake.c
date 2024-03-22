@@ -15,8 +15,8 @@ extern int baitX;
 extern int baitY;
 extern int entireTail;
 extern int point;
-extern int snakeX[];
-extern int snakeY[];
+extern int snakeX[100];
+extern int snakeY[100];
 
 //int snakeTailX[][];
 
@@ -28,7 +28,7 @@ void display_snake()
         for (int j = 0; j < width; ++j){
             for(int k = 0 ; k < entireTail; ++k){
                 if (i == snakeX[k] && j == snakeY[k])
-                    printf("p");
+                    printf("o");
             }
             if (i == 0 || i == height-1){
                 printf("@");
@@ -37,7 +37,7 @@ void display_snake()
             }else if (i == x && j == y){
                 printf("O");
             } else if (i == baitX && j == baitY){
-                printf("P");
+                printf("●");
             } 
             else printf(" ");
             
