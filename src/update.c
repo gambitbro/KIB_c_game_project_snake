@@ -101,11 +101,11 @@ int move_snake(int sdir)
 // bait & snake
 void collison()
 {
-    if (x == baitX && y == baitY)
-    {++point;
-    ++entireTail;
-    space();
-    void update_snaketail();}
+    if (x == baitX && y == baitY){
+        ++point;
+        ++entireTail;
+        space();
+    }
 }
 
 int update(int signum)
