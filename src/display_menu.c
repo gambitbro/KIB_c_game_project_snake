@@ -1,9 +1,17 @@
+/**
+ * @file:display_menu.c
+ * @brief printf, scanf, system함수를 사용하기 위해 불러온
+ * 헤더파일들입니다.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
-
-
-int display_menu() {
-
+/**
+ * @brief display_menu함수는 menu변수를 정의하고 화면을 초기하고
+ * 게임메뉴들을 표시해주는 함수입니다.
+*/
+int display_menu()
+{
     int menu;
     
      system("clear");
