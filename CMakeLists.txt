@@ -3,11 +3,11 @@ project(snake_mbg)
 
 file(GLOB SRC_FILES "src/*.c")
 
-find_library(MYSQL libmysqlclient)
+#find_library(MYSQL libmysqlclient)
 # add the executable
 add_executable(snake_mbg ${SRC_FILES})
-target_include_directories(snake_mbg PUBLIC include PUBLIC /usr/include/mysql)
-target_link_libraries(snake_mbg ${MYSQL} )
+target_include_directories(snake_mbg PUBLIC include) #PUBLIC /usr/include/mysql
+#target_link_libraries(snake_mbg ${MYSQL} )
 
 
 
