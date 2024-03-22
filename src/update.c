@@ -1,3 +1,11 @@
+/**
+ *@file update.c
+* @brief rand와 srand,time함수,출력함수,signal함수를 사용하기 위한 헤더파일들을 출력했습니다.
+* GAME START, GAME END을 정의하고 미끼의 생성,처음 생성된 미끼의 
+* 길이와 높이를 정의했습니다. 또한 게임 플레이 시간을 계산하는 count변수와 미끼의 위치 미끼를 
+  섭취했을때의 꼬리의 변화를 정의하고(bait,snakeX,Y) 필드의 크기와 게임 포인트 꼬리의 크기변수
+  를 가져와서(extern) 활용하였습니다. 
+*/
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -40,7 +48,10 @@ void space()
     }
     
 }
-
+/**
+* @example typedef함수를 사용하여 STOP LEFT RIGHT UP DOWN이란 단어의 데이터타입을
+* 정의하고 sdir(snake direction)구조체 집합 구성요소로 정의하였습니다.
+*/
 typedef enum
 {
     STOP = 0,
@@ -49,7 +60,11 @@ typedef enum
     UP,
     DOWN
 } sdir;
-
+/**
+ * @brief move_snake함수를 정의하였습니다. 위에 정한 구조체 sdir을 변수로 정하고
+ * 새로 정의한 newx,newy변수를 활용하여 switch case문으로 플레이어가 조종하는 뱀의
+ * 움직임을 정의하였습니다.
+*/
 int move_snake(int sdir)
 {
     int newx, newy;
@@ -77,7 +92,11 @@ int move_snake(int sdir)
 
     return 0;
 }
-
+/**
+ * @brief collision함수는 먹이를 플레이어가 조종하는 뱀이 먹었을때
+ * 포인트를 얻고 꼬리의 길이를 업데이트하고 새로운 먹이를 랜덤한 위치에
+ * 스폰할수 있도록 정의했습니다. 
+*/
 // bait & snake
 void collison()
 {
@@ -87,7 +106,12 @@ void collison()
     space();
     void update_snaketail();}
 }
-
+/**
+* @brief update함수는 시작하고 나서의 플레이 시간을 계산하고
+* getch를 사용해서 키보드와 연동시켜 플레이어의 뱀을 조종하거나 
+* 게임을 끝내는것을 표시하는 함수입니다.
+* @param tempX 임시적인 x
+*/
 int update(int signum)
 {
     int ch;
@@ -125,7 +149,11 @@ int update(int signum)
         //if(snakeX[0]==snakeX[i] && snakeY[0]==snakeY[i])
         // game = GAME_END;
    // }
-    
+
+    /**
+     * @brief 만약 플레이어가 조종하는 뱀이 벽에 닿았을경우 게임오버가
+     * 되는 상황을 조건문을 만들어 표시했습니다.
+    */
 
     // gameover if snake touch wall
     if (x == 0) game = GAME_END;
@@ -133,7 +161,11 @@ int update(int signum)
     if (x == width-1) game = GAME_END;
     if (y == height-1) game = GAME_END;
 
-
+    /**
+     * @brief 뱀이 먹이를 섭취하였을경우에 생기는 꼬리의 변화를 임의의 변수
+     * (temp)로 정의하고 배열을 활용하여 꼬리가 길어지는 상황을 조건문을 활
+     * 용하여 정의했습니다.
+    */
     // snake tail logic
     int tempX = snakeX[0];
     int tempY = snakeY[0];
