@@ -21,7 +21,6 @@ int baitY;
 int snakeX[100];
 int snakeY[100];
 
-int record();
 
 void space()
 {
@@ -83,19 +82,17 @@ int move_snake(int sdir)
 // bait & snake
 void collison()
 {
-    if (x == baitX && y == baitY)
-    {++point;
-    ++entireTail;
-    space();
-    void update_snaketail();}
+    if (x == baitX && y == baitY){
+        ++point;
+        ++entireTail;
+        space();
+    }
 }
 
 int update(int signum)
 {
     int ch;
     ch = getch();
-
-    
         switch (ch)
         {
         case 'i':
@@ -113,21 +110,20 @@ int update(int signum)
         case 's':
             game = GAME_END;
             break;
-        
         }
-    
-    
-    
-    ++ count;
-    display_snake();
-    collison();
-    // gameover if snake touch it's own body
-    //for (int i = 1; i < entireTail; ++i)
-   // {
-        //if(snakeX[0]==snakeX[i] && snakeY[0]==snakeY[i])
-        // game = GAME_END;
-   // }
-    
+
+        ++ count;
+        display_snake();
+        collison();
+    /*
+         gameover if snake touch it's own body
+    for (int i = 1; i < entireTail; ++i)
+    {
+        if(snakeX[0]==snakeX[i] && snakeY[0]==snakeY[i])
+         game = GAME_END;
+    }
+    */
+
 
     // gameover if snake touch wall
     if (x == 0){

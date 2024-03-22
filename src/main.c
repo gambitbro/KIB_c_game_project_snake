@@ -15,7 +15,6 @@
 #define GAME_END 1
 #define width 40
 #define height 40
-#define snake_init_length 3
 
 int game;
 int point = 0;
@@ -94,13 +93,10 @@ int main(void)
 
 void reset()
 {
-    // move_snake(STOP);
     point = 0;
     x = width / 2;
     y = height / 2;
     snakeX[0] = x;
     snakeY[0] = y;
     space();
-    //    baitX = rand() % width;
-    //    baitY = rand() % height;
 }
