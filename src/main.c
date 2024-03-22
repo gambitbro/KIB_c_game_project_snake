@@ -87,7 +87,7 @@ int main(void)
         menu = game_start();
         break;
     case 2:
-        menu = display_record();
+        printf("Record\n");
         break;
     case 3:
         printf("Quit\n");
